@@ -5,7 +5,7 @@
 Summary:	MATE control center
 Name:		mate-control-center
 Version:	1.2.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://mate-desktop.org
@@ -45,6 +45,7 @@ BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(xxf86misc)
 
+Requires:	libmatekbd
 Requires:	mate-settings-daemon
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
