@@ -4,8 +4,8 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.2.1
-Release:	2
+Version:	1.4.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://mate-desktop.org
@@ -44,8 +44,8 @@ BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(xxf86misc)
+BuildRequires:	desktop-file-utils
 
-Requires:	libmatekbd
 Requires:	mate-settings-daemon
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
@@ -64,6 +64,7 @@ This package contains the shared library for MATE Control Center
 %package -n %{devname}
 Summary:	Development libraries, include files for MATE control center
 Group:		Development/C
+Requires:	%{libname} = %{version}
 
 %description -n %{devname}
 Development libraries, include files for MATE Control Center
@@ -83,6 +84,12 @@ NOCONFIGURE=yes ./autogen.sh
 
 %install
 %makeinstall_std
+
+for desktopfile in %{buildroot}%{_datadir}/applications/*.desktop
+do
+  desktop-file-edit --remove-category=MATE --add-category=X-MATE $desktopfile
+done
+
 find %{buildroot} -name '*.la' -exec rm -f {} \;
 rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 
@@ -101,21 +108,10 @@ rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 %{_datadir}/applications/*
 %{_datadir}/desktop-directories/matecc.directory
 %{_iconsdir}/hicolor/*/apps/*
-%dir %{_datadir}/mate-control-center
-%dir %{_datadir}/mate-control-center/default-apps
-%{_datadir}/mate-control-center/default-apps/mate-default-applications.xml
-%dir %{_datadir}/mate-control-center/keybindings
-%{_datadir}/mate-control-center/keybindings/*
-%dir %{_datadir}/mate-control-center/pixmaps
-%{_datadir}/mate-control-center/pixmaps/*
-%dir %{_datadir}/mate-control-center/ui
-%{_datadir}/mate-control-center/ui/*
+%{_datadir}/mate-control-center
 %{_datadir}/mate/cursor-fonts/*
-%{_datadir}/mate/help/mate-control-center/*
 %{_datadir}/mime/packages/mate-theme-package.xml
 %{_datadir}/polkit-1/actions/org.mate.randr.policy
-# this is temporary new mate find-lang option
-%dir %{_datadir}/mate/help/mate-control-center
 
 %files -n %{libname}
 %{_libdir}/libmate-window-settings.so.%{major}*
