@@ -9,7 +9,7 @@ Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/1.2/%{name}-%{version}.tar.xz
+Source0:	http://pub.mate-desktop.org/releases/%{lua: print (string.match(rpm.expand("%{version}"),"%d+.%d+"))}/%{name}-%{version}.tar.xz
 
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	intltool
@@ -93,9 +93,9 @@ done
 find %{buildroot} -name '*.la' -exec rm -f {} \;
 rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 
-%find_lang %{name}-2.0 --with-gnome --all-name
+%find_lang %{name} --with-gnome --all-name
 
-%files -f %{name}-2.0.lang
+%files -f %{name}.lang
 %doc AUTHORS NEWS README
 %{_sysconfdir}/mateconf/schemas/control-center.schemas
 %{_sysconfdir}/mateconf/schemas/fontilus.schemas
