@@ -18,7 +18,6 @@ Url:		http://mate-desktop.org
 Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
-BuildRequires:	itstool
 BuildRequires:	mate-common
 BuildRequires:	shared-mime-info
 BuildRequires:	yelp-tools
