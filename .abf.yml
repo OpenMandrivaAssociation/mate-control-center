@@ -1,2 +1,4 @@
+removed_sources:
+  mate-control-center-1.8.1.tar.xz: 9b7b5e0dee5bf7781bc186d97d0d5706ecb04631
 sources:
-  "mate-control-center-1.8.1.tar.xz": 9b7b5e0dee5bf7781bc186d97d0d5706ecb04631
+  mate-control-center-1.8.2.tar.xz: 581439b1e9d042f6cf5707e041fc521fa3fe63f8

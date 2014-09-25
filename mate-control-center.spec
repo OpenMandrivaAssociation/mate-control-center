@@ -10,12 +10,12 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.8.1
+Version:	1.8.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	mate-common
@@ -147,4 +147,3 @@ rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 %{_libdir}/pkgconfig/libslab.pc
 %dir %{_includedir}/libslab
 %{_includedir}/libslab/*
-
