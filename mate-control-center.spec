@@ -10,7 +10,7 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.8.1
+Version:	1.8.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -90,8 +90,7 @@ Development libraries, include files for MATE Control Center
 NOCONFIGURE=yes ./autogen.sh
 
 %build
-%configure2_5x \
-	--disable-static \
+%configure \
 	--disable-update-mimedb
 
 %make
