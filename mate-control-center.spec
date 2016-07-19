@@ -5,13 +5,13 @@
 %define devname %mklibname -d mate-window-settings
 
 %define	slabmaj	0
-%define	libslab	%mklibname slab %{slabmaj}
-%define	devslab	%mklibname -d slab
+%define	libslab	%mklibname mate-slab %{slabmaj}
+%define	devslab	%mklibname -d mate-slab
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.8.3
-Release:	2
+Version:	1.14.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://mate-desktop.org
@@ -24,8 +24,7 @@ BuildRequires:	yelp-tools
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gstreamer-0.10)
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(iso-codes)
 BuildRequires:	pkgconfig(libcanberra-gtk)
@@ -39,7 +38,7 @@ BuildRequires:	pkgconfig(mate-settings-daemon)
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(sm)
-BuildRequires:	pkgconfig(unique-1.0)
+BuildRequires:	pkgconfig(unique-3.0)
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xext)
@@ -125,25 +124,26 @@ rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 %{_datadir}/mime/packages/mate-theme-package.xml
 %{_datadir}/polkit-1/actions/org.mate.randr.policy
 %{_datadir}/thumbnailers/mate-font-viewer.thumbnailer
-%{_mandir}/man1/mate-about-me.1*
-%{_mandir}/man1/mate-appearance-properties.1*
-%{_mandir}/man1/mate-default-applications-properties.1*
+%{_mandir}/man1/mate-*.1*
 
 %files -n %{libname}
 %{_libdir}/libmate-window-settings.so.%{major}*
 
 %files -n %{devname}
 %{_libdir}/libmate-window-settings.so
-%{_libdir}/pkgconfig/mate-*.pc
+%{_libdir}/pkgconfig/mate-default-applications.pc
+%{_libdir}/pkgconfig/mate-keybindings.pc
+%{_libdir}/pkgconfig/mate-window-settings-2.0.pc
+
 %dir %{_includedir}/mate-window-settings-2.0
 %{_includedir}/mate-window-settings-2.0/*
 
 %files -n %{libslab}
-%{_libdir}/libslab.so.%{slabmaj}*
+%{_libdir}/libmate-slab.so.%{slabmaj}*
 
 %files -n %{devslab}
-%{_libdir}/libslab.so
-%{_libdir}/pkgconfig/libslab.pc
-%dir %{_includedir}/libslab
-%{_includedir}/libslab/*
+%{_libdir}/libmate-slab.so
+%{_libdir}/pkgconfig/mate-slab.pc
+%dir %{_includedir}/libmate-slab
+%{_includedir}/libmate-slab/*
 
