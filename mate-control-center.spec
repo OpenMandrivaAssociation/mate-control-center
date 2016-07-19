@@ -90,7 +90,8 @@ NOCONFIGURE=yes ./autogen.sh
 
 %build
 %configure \
-	--disable-update-mimedb
+	--disable-update-mimedb \
+	--with-gtk=3.0
 
 %make
 
