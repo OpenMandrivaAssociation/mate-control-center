@@ -10,12 +10,12 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.14.0
+Version:	1.18.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
-Url:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://mate-desktop.org
+Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	mate-common
@@ -86,13 +86,12 @@ Development libraries, include files for MATE Control Center
 %prep
 %setup -q
 %apply_patches
-NOCONFIGURE=yes ./autogen.sh
 
 %build
+#NOCONFIGURE=yes ./autogen.sh
 %configure \
 	--disable-update-mimedb \
-	--with-gtk=3.0
-
+	%{nil}
 %make
 
 %install
@@ -110,7 +109,7 @@ rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS README COPYING
 %{_sysconfdir}/xdg/menus/matecc.menu
 %{_bindir}/mate-*
 %{_sbindir}/mate-*
@@ -121,7 +120,6 @@ rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 %{_datadir}/glib-2.0/schemas/org.mate.control-center.keybinding.gschema.xml
 %{_iconsdir}/hicolor/*/apps/*
 %{_datadir}/mate-control-center
-%{_datadir}/mate/cursor-fonts/*
 %{_datadir}/mime/packages/mate-theme-package.xml
 %{_datadir}/polkit-1/actions/org.mate.randr.policy
 %{_datadir}/thumbnailers/mate-font-viewer.thumbnailer
