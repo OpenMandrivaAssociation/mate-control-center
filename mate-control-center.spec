@@ -10,7 +10,7 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.20.0
+Version:	1.20.4
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
@@ -149,7 +149,7 @@ based on %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
@@ -157,10 +157,10 @@ based on %{name}.
 	--disable-schemas-compile \
 	--disable-update-mimedb \
 	%{nil}
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # Fix category field in .desktop files
 for desktopfile in %{buildroot}%{_datadir}/applications/*.desktop
@@ -177,4 +177,3 @@ rm -f %{buildroot}%{_datadir}/applications/mimeinfo.cache
 
 # locales
 %find_lang %{name} --with-gnome --all-name
-
