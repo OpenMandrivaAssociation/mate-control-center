@@ -10,7 +10,7 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.18.2
+Version:	1.18.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/GNOME
