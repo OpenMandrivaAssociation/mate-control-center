@@ -10,10 +10,10 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.20.4
+Version:	1.22.1
 Release:	1
 License:	GPLv2+
-Group:		Graphical desktop/GNOME
+Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 
