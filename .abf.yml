@@ -1,7 +1,2 @@
-removed_sources:
-  mate-control-center-1.14.0.tar.xz: 4e02c9461fbdf7acf4bca015199e8bfedb11a278
-  mate-control-center-1.18.2.tar.xz: c7110c13db879eb84e6992a3f22074fd2e1f7e7c
-  mate-control-center-1.20.0.tar.xz: 06b33f544ea805ea23df30df4a819f50e1f4fbf7
-  mate-control-center-1.20.4.tar.xz: b4c7ee01cf045fd3bffefa7df769ff03ab1576f4
 sources:
-  mate-control-center-1.22.1.tar.xz: f9d022adf2af01731cc333704c706209a5e7b6fb
+  mate-control-center-1.22.2.tar.xz: 0d7d6e30dc086850e3d147e272f610372ef9132b
