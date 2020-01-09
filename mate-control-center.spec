@@ -10,7 +10,7 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.22.1
+Version:	1.22.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Other
