@@ -81,6 +81,7 @@ aspects of your desktop.
 %{_datadir}/glib-2.0/schemas/org.mate.control-center.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.mate.control-center.keybinding.gschema.xml
 %{_iconsdir}/hicolor/*/apps/*
+{_iconsdir}/hicolor/*/categories/instant-messaging.png
 %{_datadir}/mate-control-center
 %{_datadir}/mate-time-admin/
 %{_datadir}/mime/packages/mate-theme-package.xml
