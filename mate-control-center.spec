@@ -50,6 +50,7 @@ BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(xft)
 BuildRequires:  pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(xxf86misc)
+BuildRequires:  pkgconfig(polkit-gobject-1)
 BuildRequires:	yelp-tools
 
 Requires:	gnome-keyring
@@ -81,6 +82,7 @@ aspects of your desktop.
 %{_datadir}/glib-2.0/schemas/org.mate.control-center.keybinding.gschema.xml
 %{_iconsdir}/hicolor/*/apps/*
 %{_datadir}/mate-control-center
+%{_datadir}/mate-time-admin/
 %{_datadir}/mime/packages/mate-theme-package.xml
 %{_datadir}/polkit-1/actions/org.mate.randr.policy
 %{_datadir}/thumbnailers/mate-font-viewer.thumbnailer
