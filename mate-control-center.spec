@@ -10,13 +10,14 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.22.2
+Version:	1.24.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	autoconf-archive
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	mate-common
@@ -49,6 +50,7 @@ BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(xft)
 BuildRequires:  pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(xxf86misc)
+BuildRequires:  pkgconfig(polkit-gobject-1)
 BuildRequires:	yelp-tools
 
 Requires:	gnome-keyring
@@ -79,7 +81,9 @@ aspects of your desktop.
 %{_datadir}/glib-2.0/schemas/org.mate.control-center.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.mate.control-center.keybinding.gschema.xml
 %{_iconsdir}/hicolor/*/apps/*
+{_iconsdir}/hicolor/*/categories/instant-messaging.png
 %{_datadir}/mate-control-center
+%{_datadir}/mate-time-admin/
 %{_datadir}/mime/packages/mate-theme-package.xml
 %{_datadir}/polkit-1/actions/org.mate.randr.policy
 %{_datadir}/thumbnailers/mate-font-viewer.thumbnailer
