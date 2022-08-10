@@ -74,7 +74,6 @@ aspects of your desktop.
 %doc AUTHORS NEWS README COPYING
 %{_sysconfdir}/xdg/menus/matecc.menu
 %{_bindir}/mate-*
-%{_sbindir}/mate-*
 %{_libdir}/window-manager-settings/libmarco.so
 %{_datadir}/applications/*
 %{_datadir}/desktop-directories/matecc.directory
@@ -87,7 +86,7 @@ aspects of your desktop.
 %{_datadir}/mime/packages/mate-theme-package.xml
 %{_datadir}/polkit-1/actions/org.mate.randr.policy
 %{_datadir}/thumbnailers/mate-font-viewer.thumbnailer
-%{_mandir}/man1/mate-*.1*
+%doc %{_mandir}/man1/mate-*.1*
 
 #---------------------------------------------------------------------------
 
@@ -152,8 +151,7 @@ based on %{name}.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
