@@ -1,21 +1,27 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define	major	1
-%define	libname	%mklibname mate-window-settings %{major}
+%define major 1
+%define libname %mklibname mate-window-settings %{major}
 %define devname %mklibname -d mate-window-settings
 
-%define	slabmaj	0
-%define	libslab	%mklibname mate-slab %{slabmaj}
-%define	devslab	%mklibname -d mate-slab
+%define slabmaj 0
+%define libslab %mklibname mate-slab %{slabmaj}
+%define devslab %mklibname -d mate-slab
 
 Summary:	MATE control center
 Name:		mate-control-center
 Version:	1.26.0
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Patch1:		mate-control-center_0001-Maintain-compatibility-with-Glibc-versions-older-tha.patch
+Patch2:		mate-control-center_0002-Remove-redundant-i18n-functions.patch
+Patch3:		mate-control-center_0003-Change-capplets-about-me-mate-about-me-password.c-fo.patch
+Patch4:		mate-control-center_0004-mouse-fix-memory-leak.patch
+Patch5:		mate-control-center_0005-keyboard-fix-memory-leak.patch
+Patch6:		mate-control-center_0006-mate-da-capplet-fix-memory-leak.patch
 
 BuildRequires:	autoconf-archive
 BuildRequires:	desktop-file-utils
@@ -48,9 +54,9 @@ BuildRequires:	pkgconfig(xi)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(libxklavier)
 BuildRequires:	pkgconfig(xft)
-BuildRequires:  pkgconfig(xscrnsaver)
+BuildRequires:	pkgconfig(xscrnsaver)
 BuildRequires:	pkgconfig(xxf86misc)
-BuildRequires:  pkgconfig(polkit-gobject-1)
+BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	yelp-tools
 
 Requires:	gnome-keyring
@@ -157,8 +163,8 @@ based on %{name}.
 #NOCONFIGURE=yes ./autogen.sh
 %configure \
 	--disable-schemas-compile \
-	--disable-update-mimedb \
-	%{nil}
+	--disable-update-mimedb
+
 %make_build
 
 %install

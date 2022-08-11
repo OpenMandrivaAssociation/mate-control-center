@@ -1,0 +1,35 @@
+From 333e98a54ec44e77133d990d41d7e0ab644a4dfb Mon Sep 17 00:00:00 2001
+From: Yaron Shahrabani <sh.yaron@gmail.com>
+Date: Wed, 22 Sep 2021 00:06:21 +0300
+Subject: [PATCH 4/9] Remove redundant i18n functions
+
+These specific functions can only cause mess when translated, it's better to keep the original terms.
+---
+ capplets/time-admin/src/main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/capplets/time-admin/src/main.c b/capplets/time-admin/src/main.c
+index 5f0463e3..a15254e6 100644
+--- a/capplets/time-admin/src/main.c
++++ b/capplets/time-admin/src/main.c
+@@ -261,7 +261,7 @@ static gboolean InitDbusProxy(TimeAdmin *ta)
+     ta->Connection = g_bus_get_sync (G_BUS_TYPE_SYSTEM, NULL, &error);
+     if(ta->Connection == NULL)
+     {
+-        ErrorMessage (_("g_bus_get_sync"), error->message);
++        ErrorMessage ("g_bus_get_sync", error->message);
+         goto EXIT;
+     }
+     ta->proxy = g_dbus_proxy_new_sync (ta->Connection,
+@@ -274,7 +274,7 @@ static gboolean InitDbusProxy(TimeAdmin *ta)
+                                       &error);
+     if(ta->proxy == NULL)
+     {
+-        ErrorMessage (_("g_bus_proxy_new"), error->message);
++        ErrorMessage ("g_bus_proxy_new", error->message);
+         goto EXIT;
+     }
+ 
+-- 
+2.36.1
+

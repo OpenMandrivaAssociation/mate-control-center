@@ -1,0 +1,24 @@
+From dd2c22523987bff1d4bdc92a166441d2589e703f Mon Sep 17 00:00:00 2001
+From: rbuj <robert.buj@gmail.com>
+Date: Mon, 8 Nov 2021 13:17:12 +0100
+Subject: [PATCH 9/9] mate-da-capplet: fix memory leak
+
+---
+ capplets/default-applications/mate-da-capplet.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/capplets/default-applications/mate-da-capplet.c b/capplets/default-applications/mate-da-capplet.c
+index e5ade48b..0c69b5fa 100644
+--- a/capplets/default-applications/mate-da-capplet.c
++++ b/capplets/default-applications/mate-da-capplet.c
+@@ -789,6 +789,7 @@ main(int argc, char** argv)
+ 	g_option_context_add_main_entries(context, option_entries, GETTEXT_PACKAGE);
+ 
+ 	capplet_init(context, &argc, &argv);
++	g_option_context_free(context);
+ 
+ 	MateDACapplet* capplet = g_new0(MateDACapplet, 1);
+ 
+-- 
+2.36.1
+

@@ -1,0 +1,24 @@
+From e5952471d2964ddb815ca7e40380f3472cc338a9 Mon Sep 17 00:00:00 2001
+From: rbuj <robert.buj@gmail.com>
+Date: Fri, 22 Oct 2021 13:18:23 +0200
+Subject: [PATCH 8/9] keyboard: fix memory leak
+
+---
+ capplets/keyboard/mate-keyboard-properties.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/capplets/keyboard/mate-keyboard-properties.c b/capplets/keyboard/mate-keyboard-properties.c
+index ff389cfe..4152759b 100644
+--- a/capplets/keyboard/mate-keyboard-properties.c
++++ b/capplets/keyboard/mate-keyboard-properties.c
+@@ -187,6 +187,7 @@ main (int argc, char **argv)
+ 					   GETTEXT_PACKAGE);
+ 
+ 	capplet_init (context, &argc, &argv);
++	g_option_context_free (context);
+ 
+ 	activate_settings_daemon ();
+ 
+-- 
+2.36.1
+
