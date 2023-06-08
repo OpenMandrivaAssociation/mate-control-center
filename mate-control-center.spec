@@ -10,18 +10,12 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.26.0
-Release:	3
+Version:	1.26.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
-Patch1:		mate-control-center_0001-Maintain-compatibility-with-Glibc-versions-older-tha.patch
-Patch2:		mate-control-center_0002-Remove-redundant-i18n-functions.patch
-Patch3:		mate-control-center_0003-Change-capplets-about-me-mate-about-me-password.c-fo.patch
-Patch4:		mate-control-center_0004-mouse-fix-memory-leak.patch
-Patch5:		mate-control-center_0005-keyboard-fix-memory-leak.patch
-Patch6:		mate-control-center_0006-mate-da-capplet-fix-memory-leak.patch
 
 BuildRequires:	autoconf-archive
 BuildRequires:	desktop-file-utils
@@ -35,6 +29,7 @@ BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(ice)
 #BuildRequires:	pkgconfig(iso-codes)
+BuildRequires:	pkgconfig(accountsservice)
 BuildRequires:	pkgconfig(appindicator3-0.1)
 BuildRequires:	pkgconfig(libcanberra-gtk3)
 #BuildRequires:	pkgconfig(libebook-1.2)
