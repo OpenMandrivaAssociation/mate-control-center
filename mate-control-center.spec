@@ -2,17 +2,15 @@
 
 Summary:	MATE control center
 Name:		mate-control-center
-Version:	1.28.0
+Version:	1.28.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Other
 Url:		https://mate-desktop.org
-Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
+#Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
+Source0:	https://github.com/mate-desktop/mate-control-center/releases/download/v%{version}/mate-control-center-%{version}.tar.xz
 
-BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
-BuildRequires:	make
+BuildRequires:	meson
 BuildRequires:	autoconf-archive
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
@@ -93,14 +91,14 @@ aspects of your desktop.
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
-%configure \
-	--disable-schemas-compile \
-	--disable-update-mimedb
+%meson	\
+	-Daccountsservice=enabled \
+	-Dlibappindicator=enabled
 
-%make_build
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 # Fix category field in .desktop files
 for desktopfile in %{buildroot}%{_datadir}/applications/*.desktop
